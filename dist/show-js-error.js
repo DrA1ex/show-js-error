@@ -372,7 +372,7 @@ var showJSError = {
                 ['Title', err.title || this._getTitle()],
                 ['Message', this._getMessage(err)],
                 ['Filename', this._getFilenameWithPosition(err)],
-                ['Stack', this._getStack(err)],
+                ['Stack', "{code:javaScript}" + this._getStack(err) + "{code}"],
                 ['Page url', window.location.href],
                 ['Refferer', document.referrer],
                 ['User-agent', settings.userAgent || navigator.userAgent],
@@ -384,7 +384,7 @@ var showJSError = {
         var text = '';
         for (var i = 0; i < props.length; i++) {
             var item = props[i];
-            text += item[0] + ': ' + item[1] + '\n';
+            text += "*" + item[0] + "*" + ': ' + item[1] + '\n';
         }
 
         if (settings.templateDetailedMessage) {
